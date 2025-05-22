@@ -1,0 +1,1500 @@
+/* Admin Panel Styling */
+
+.admin-panel {
+    padding-top: 80px;
+    min-height: 100vh;
+    background: var(--background-color);
+    text-align: center;
+}
+
+.admin-panel h2 {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    color: var(--black-color);
+    margin: 2rem 0;
+}
+
+.admin-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.admin-content h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    color: var(--black-color);
+    margin: 2rem 0 1rem;
+}
+
+.admin-content form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.admin-content form.highlight {
+    background: linear-gradient(135deg, #ffebee, #fff);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 8px 25px rgba(211, 47, 47, 0.2);
+    animation: highlightPulse 2s ease-in-out;
+}
+
+@keyframes highlightPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 25px rgba(211, 47, 47, 0.2);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 12px 35px rgba(211, 47, 47, 0.3);
+    }
+}
+
+.admin-content input, .admin-content select, .admin-content textarea {
+    padding: 0.8rem;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.admin-content input:focus, .admin-content select:focus, .admin-content textarea:focus {
+    outline: none;
+    border-color: var(--black-color);
+}
+
+.admin-content input:hover,
+.admin-content select:hover,
+.admin-content textarea:hover {
+    border-color: var(--accent-color);
+}
+
+.file-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 2px dashed var(--border-color);
+    border-radius: 10px;
+    background: #fafafa;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.file-label:hover {
+    border-color: var(--black-color);
+    background: #f0f0f0;
+}
+
+.file-label span {
+    font-size: 1rem;
+    color: var(--black-color);
+    font-weight: 600;
+}
+
+.file-label input[type="file"] {
+    display: none;
+}
+
+.admin-content button {
+    background: var(--black-color);
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-content button:hover {
+    background: var(--dark-gray);
+    transform: translateY(-2px);
+}
+
+.admin-content button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.admin-content button:hover::before {
+    left: 100%;
+}
+
+/* Admin Tabs Styling */
+.admin-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.tab-btn {
+    padding: 0.8rem 1.5rem;
+    background: #eee;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.tab-btn.active {
+    background: var(--black-color);
+    color: white;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Product Management Styles - Horizontal Layout for PC */
+#product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Horizontal Product Cards */
+.product-group {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.product-group:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 30px rgba(211, 47, 47, 0.15);
+    transform: translateY(-2px);
+}
+
+.product-group-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-bottom: 2px solid #e9ecef;
+    min-height: 120px;
+}
+
+.product-group-header img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 1.5rem;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
+    flex-shrink: 0;
+}
+
+.product-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.product-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.product-info .product-category {
+    color: #666;
+    margin: 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.variant-count {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0.5rem 0 0 0;
+    padding: 0.3rem 0.8rem;
+    background: rgba(211, 47, 47, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* Group Actions - Better positioned */
+.group-actions {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+/* Horizontal Variant Layout */
+.product-variants {
+    padding: 0;
+    background: #f8f9fa;
+}
+
+.variant-item {
+    display: grid;
+    grid-template-columns: 100px 120px 120px 1fr auto;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid #e9ecef;
+    gap: 1.5rem;
+    transition: background 0.3s ease;
+    min-height: 70px;
+}
+
+.variant-item:hover {
+    background: #ffffff;
+    box-shadow: inset 0 0 0 2px rgba(211, 47, 47, 0.1);
+}
+
+.variant-item:last-child {
+    border-bottom: none;
+}
+
+.variant-weight {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(211, 47, 47, 0.3);
+    min-width: 80px;
+}
+
+.variant-price {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.variant-stock {
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.variant-stock.in-stock {
+    color: #2e7d32;
+    background: rgba(76, 175, 80, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+}
+
+.variant-stock.out-of-stock {
+    color: #d32f2f;
+    background: rgba(211, 47, 47, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+}
+
+/* Enhanced Variant Actions */
+.variant-actions {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: flex-end;
+}
+
+.variant-edit-btn, .variant-delete-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 90px;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.variant-edit-btn {
+    background: linear-gradient(135deg, #2e7d32, #4caf50);
+    color: white;
+    box-shadow: 0 3px 10px rgba(46, 125, 50, 0.3);
+}
+
+.variant-edit-btn:hover {
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.4);
+}
+
+.variant-delete-btn {
+    background: linear-gradient(135deg, #d32f2f, #f44336);
+    color: white;
+    box-shadow: 0 3px 10px rgba(211, 47, 47, 0.3);
+}
+
+.variant-delete-btn:hover {
+    background: linear-gradient(135deg, #b71c1c, #d32f2f);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+}
+
+/* Weight System Admin Styles */
+.product-group {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-group::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(211, 47, 47, 0.1), transparent);
+    transition: left 0.5s;
+    z-index: 1;
+}
+
+.product-group:hover::before {
+    left: 100%;
+}
+
+.product-group:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(211, 47, 47, 0.15);
+}
+
+.product-group-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-bottom: 1px solid #dee2e6;
+}
+
+.product-group-header img {
+    margin-right: 1rem;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.2);
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.product-info .product-category {
+    color: #666;
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.variant-count {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Group Actions */
+.group-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+/* Enhanced Group Actions for better PC visibility */
+.manage-weights-btn, .add-variant-btn, .delete-group-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1rem;
+    min-width: 140px;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.manage-weights-btn {
+    background: linear-gradient(135deg, #2e7d32, #1b5e20);
+    color: white;
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+    border: 2px solid transparent;
+}
+
+.manage-weights-btn:hover {
+    background: linear-gradient(135deg, #1b5e20, #0d4f12);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
+    border-color: #4caf50;
+}
+
+.manage-weights-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.manage-weights-btn:hover::before {
+    left: 100%;
+}
+
+.add-variant-btn {
+    background: linear-gradient(135deg, #4caf50, #66bb6a);
+    color: white;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    border: 2px solid transparent;
+}
+
+.add-variant-btn:hover {
+    background: linear-gradient(135deg, #388e3c, #4caf50);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+    border-color: #66bb6a;
+}
+
+.add-variant-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.add-variant-btn:hover::before {
+    left: 100%;
+}
+
+.delete-group-btn {
+    background: linear-gradient(135deg, #ff6b35, #ff8a65);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    border: 2px solid transparent;
+}
+
+.delete-group-btn:hover {
+    background: linear-gradient(135deg, #e55a2b, #ff6b35);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    border-color: #ff8a65;
+}
+
+.delete-group-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.delete-group-btn:hover::before {
+    left: 100%;
+}
+
+/* Enhanced button icons */
+.manage-weights-btn i, .add-variant-btn i, .delete-group-btn i {
+    font-size: 1.1rem;
+    margin-right: 0.2rem;
+}
+
+/* Focus states */
+.manage-weights-btn:focus, .add-variant-btn:focus {
+    outline: 3px solid rgba(76, 175, 80, 0.5);
+    outline-offset: 2px;
+}
+
+.delete-group-btn:focus {
+    outline: 3px solid rgba(255, 107, 53, 0.5);
+    outline-offset: 2px;
+}
+
+/* Variant Items */
+.product-variants {
+    padding: 0;
+}
+
+.variant-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    gap: 1rem;
+    transition: background 0.3s ease;
+}
+
+.variant-item:hover {
+    background: #f8f9fa;
+}
+
+.variant-item:last-child {
+    border-bottom: none;
+}
+
+.variant-weight {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    min-width: 60px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(211, 47, 47, 0.3);
+}
+
+.variant-price {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    min-width: 80px;
+}
+
+.variant-stock {
+    flex: 1;
+    font-weight: 600;
+}
+
+.variant-stock.in-stock {
+    color: var(--green-accent);
+}
+
+.variant-stock.out-of-stock {
+    color: var(--primary-color);
+}
+
+/* Admin Actions Styling - Enhanced for PC visibility */
+.admin-actions {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.edit-product, .delete-product, .edit-tip, .delete-tip {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 120px;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.edit-product, .edit-tip {
+    background: linear-gradient(135deg, #2e7d32, #4caf50);
+    color: white;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+    border: 2px solid transparent;
+}
+
+.edit-product:hover, .edit-tip:hover {
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+    border-color: #4caf50;
+}
+
+.edit-product::before, .edit-tip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.edit-product:hover::before, .edit-tip:hover::before {
+    left: 100%;
+}
+
+.delete-product, .delete-tip {
+    background: linear-gradient(135deg, #d32f2f, #f44336);
+    color: white;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+    border: 2px solid transparent;
+}
+
+.delete-product:hover, .delete-tip:hover {
+    background: linear-gradient(135deg, #b71c1c, #d32f2f);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(211, 47, 47, 0.4);
+    border-color: #f44336;
+}
+
+.delete-product::before, .delete-tip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.delete-product:hover::before, .delete-tip:hover::before {
+    left: 100%;
+}
+
+/* Button icons styling */
+.edit-product i, .edit-tip i, .delete-product i, .delete-tip i {
+    font-size: 1.1rem;
+    margin-right: 0.2rem;
+}
+
+/* Enhanced button focus states for accessibility */
+.edit-product:focus, .edit-tip:focus {
+    outline: 3px solid rgba(76, 175, 80, 0.5);
+    outline-offset: 2px;
+}
+
+.delete-product:focus, .delete-tip:focus {
+    outline: 3px solid rgba(244, 67, 54, 0.5);
+    outline-offset: 2px;
+}
+
+.variant-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.variant-actions button {
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Edit Modal */
+.edit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
+    padding: 1rem;
+}
+
+.edit-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--black-color);
+    text-align: center;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-content input, .modal-content select, .modal-content textarea {
+    padding: 0.8rem;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.modal-content input:focus, .modal-content select:focus, .modal-content textarea:focus {
+    outline: none;
+    border-color: var(--black-color);
+}
+
+.cancel-btn {
+    background: #666;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.cancel-btn:hover {
+    background: #555;
+}
+
+#edit-product-image-preview, #edit-tip-image-preview {
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    margin: 10px auto;
+}
+
+/* Weight Management Modal Styles */
+.weight-management-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+    padding: 2rem;
+}
+
+.weight-management-modal.active {
+    display: flex;
+}
+
+.weight-management-content {
+    background: white;
+    border-radius: 15px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+.weight-management-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), #b71c1c);
+    color: white;
+}
+
+.weight-management-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.weight-management-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.weight-management-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.weight-management-body {
+    padding: 1.5rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.weight-management-actions {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.weight-action-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-weight {
+    background: linear-gradient(135deg, var(--green-accent), #388e3c);
+}
+
+.add-weight:hover {
+    background: linear-gradient(135deg, #388e3c, var(--green-accent));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+}
+
+.weight-variants-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.weight-variant-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+    transition: all 0.3s ease;
+}
+
+.weight-variant-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.2);
+    background: linear-gradient(135deg, #fff, #ffebee);
+}
+
+.variant-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.variant-weight-display {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    min-width: 70px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+}
+
+.variant-price-display {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    min-width: 80px;
+}
+
+.variant-stock-display {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.variant-stock-display.in-stock {
+    color: var(--green-accent);
+}
+
+.variant-stock-display.out-of-stock {
+    color: var(--primary-color);
+}
+
+.variant-edit-btn, .variant-delete-btn {
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.variant-edit-btn {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 5px rgba(211, 47, 47, 0.3);
+}
+
+.variant-edit-btn:hover {
+    background: #b71c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.4);
+}
+
+.variant-delete-btn {
+    background: #ff6b35;
+    color: white;
+    box-shadow: 0 2px 5px rgba(255, 107, 53, 0.3);
+}
+
+.variant-delete-btn:hover {
+    background: #e55a2b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(255, 107, 53, 0.4);
+}
+
+/* Admin Message Styles */
+.admin-message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-weight: 600;
+    text-align: center;
+    animation: slideInMessage 0.3s ease-out;
+}
+
+.admin-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-left: 4px solid #28a745;
+}
+
+.admin-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-left: 4px solid #dc3545;
+}
+
+/* Course Management Styles - Horizontal Layout */
+#courses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.tip-box {
+    background: white;
+    padding: 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.tip-box:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 30px rgba(211, 47, 47, 0.15);
+}
+
+/* Horizontal Course Layout */
+.course-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-bottom: 2px solid #e9ecef;
+    min-height: 120px;
+}
+
+.tip-box img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 1.5rem;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+.course-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.tip-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.tip-category {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-style: normal;
+    font-weight: 600;
+    background: rgba(211, 47, 47, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.course-details {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.course-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.course-duration {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.course-level {
+    font-size: 0.9rem;
+    color: #4caf50;
+    font-weight: 600;
+    background: rgba(76, 175, 80, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* Course Description Section */
+.tip-description {
+    text-align: left;
+    margin: 0;
+    padding: 1.5rem 2rem;
+    background: #f8f9fa;
+    border-left: 4px solid var(--primary-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    min-height: 60px;
+}
+
+/* Enhanced Course Actions */
+.course-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding: 1.5rem 2rem;
+    background: #ffffff;
+    border-top: 1px solid #e9ecef;
+}
+
+.edit-tip, .delete-tip {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 120px;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.edit-tip {
+    background: linear-gradient(135deg, #2e7d32, #4caf50);
+    color: white;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+.edit-tip:hover {
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(46, 125, 50, 0.4);
+}
+
+.delete-tip {
+    background: linear-gradient(135deg, #d32f2f, #f44336);
+    color: white;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.delete-tip:hover {
+    background: linear-gradient(135deg, #b71c1c, #d32f2f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(211, 47, 47, 0.4);
+}
+
+/* Course Structure Override - Remove default tip-box styling conflicts */
+.tip-box .course-header + .tip-description + .course-actions {
+    /* This ensures proper layout flow */
+}
+
+/* Enhanced course layout for better admin management */
+.course-admin-layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.course-header-content {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 1.5rem;
+    align-items: start;
+    width: 100%;
+}
+
+.course-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.course-tags {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive course layout */
+@media (max-width: 768px) {
+    .course-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .tip-box img {
+        margin: 0 0 1rem 0;
+    }
+    
+    .course-details {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .course-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .edit-tip, .delete-tip {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .tip-description {
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .course-header {
+        padding: 2rem 3rem;
+        min-height: 140px;
+    }
+    
+    .tip-box img {
+        width: 100px;
+        height: 100px;
+        margin-right: 2rem;
+    }
+    
+    .tip-box h3 {
+        font-size: 1.6rem;
+    }
+    
+    .course-details {
+        gap: 2.5rem;
+    }
+    
+    .course-price {
+        font-size: 1.3rem;
+    }
+    
+    .course-duration {
+        font-size: 1.1rem;
+    }
+    
+    .tip-description {
+        margin: 0;
+        padding: 2rem 3rem;
+        font-size: 1rem;
+    }
+    
+    .course-actions {
+        padding: 2rem 3rem;
+        gap: 1.5rem;
+    }
+    
+    .edit-tip, .delete-tip {
+        padding: 1rem 1.8rem;
+        font-size: 1.1rem;
+        min-width: 140px;
+    }
+}
+
+/* Responsive Updates */
+@media (max-width: 768px) {
+    .admin-actions {
+        flex-direction: column;
+    }
+    
+    .edit-product, .delete-product, .edit-tip, .delete-tip {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .product-group-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .product-group-header img {
+        margin: 0;
+    }
+    
+    .group-actions {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .variant-item {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .variant-actions {
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+    
+    .weight-management-modal {
+        padding: 1rem;
+    }
+    
+    .weight-management-content {
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .weight-variant-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .variant-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .variant-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .group-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .manage-weights-btn {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .admin-panel h2 {
+        font-size: 2.5rem;
+    }
+    
+    .admin-content {
+        padding: 2rem;
+    }
+    
+    .admin-content form {
+        padding: 2rem;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+    }
+    
+    .admin-content h3 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Enhanced desktop-specific button improvements */
+@media (min-width: 1024px) {
+    .admin-panel {
+        padding: 6rem 5% 3rem;
+    }
+    
+    .admin-panel h2 {
+        font-size: 3rem;
+    }
+    
+    .admin-content {
+        padding: 3rem;
+    }
+    
+    /* Larger buttons for desktop */
+    .admin-actions {
+        gap: 1.2rem;
+        margin-top: 2rem;
+    }
+    
+    .edit-product, .delete-product, .edit-tip, .delete-tip {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        min-width: 150px;
+        border-radius: 10px;
+    }
+    
+    .variant-actions {
+        gap: 1rem;
+    }
+    
+    .variant-edit-btn, .variant-delete-btn {
+        padding: 0.8rem 1.4rem;
+        font-size: 1rem;
+        min-width: 120px;
+        border-radius: 10px;
+    }
+    
+    .group-actions {
+        gap: 1rem;
+    }
+    
+    .manage-weights-btn, .add-variant-btn, .delete-group-btn {
+        padding: 1rem 1.8rem;
+        font-size: 1.1rem;
+        min-width: 160px;
+        border-radius: 12px;
+    }
+    
+    /* Enhanced hover effects for desktop */
+    .edit-product:hover, .edit-tip:hover,
+    .variant-edit-btn:hover,
+    .manage-weights-btn:hover, .add-variant-btn:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 12px 30px rgba(46, 125, 50, 0.4);
+    }
+    
+    .delete-product:hover, .delete-tip:hover,
+    .variant-delete-btn:hover,
+    .delete-group-btn:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 12px 30px rgba(211, 47, 47, 0.4);
+    }
+    
+    /* Button container improvements for desktop */
+    .product-group-header {
+        padding: 2rem;
+    }
+    
+    .variant-item {
+        padding: 1.5rem 2rem;
+    }
+}

@@ -1,0 +1,194 @@
+/* Product Display Styles */
+
+.product-box {
+    position: relative;
+    background: var(--card-background);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    border: 1px solid var(--border-color);
+}
+
+.product-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-box .img-box {
+    overflow: hidden;
+}
+
+.product-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.product-box:hover img {
+    transform: scale(1.1);
+}
+
+.product-box h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    color: var(--black-color);
+    padding: 0 1rem;
+}
+
+.product-box p {
+    font-size: 0.9rem;
+    color: #666;
+    padding: 0 1rem 1rem;
+    line-height: 1.5;
+}
+
+.price-and-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem 1rem;
+}
+
+.price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--black-color);
+}
+
+.add-cart {
+    padding: 0.5rem;
+    background: var(--black-color);
+    border-radius: 50%;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.add-cart:hover {
+    background: var(--dark-gray);
+}
+
+/* Product Title and Rating */
+.product-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0.8rem 0;
+    color: var(--black-color);
+}
+
+.rating {
+    margin: 0.5rem 0;
+    color: #ffc107;
+}
+
+.rating i {
+    font-size: 0.9rem;
+}
+
+/* Stock Status Styling */
+.stock-status {
+    font-weight: 600;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.stock-status.in-stock {
+    color: var(--accent-color);
+}
+
+.stock-status.out-of-stock {
+    color: var(--error-color);
+}
+
+.product-box.out-of-stock {
+    opacity: 0.8;
+}
+
+.product-box.out-of-stock img {
+    filter: grayscale(50%);
+}
+
+.out-of-stock-label {
+    font-size: 0.9rem;
+    color: var(--error-color);
+    font-weight: 600;
+}
+
+/* Course specific styles */
+.course-box {
+    /* Inherits from product-box */
+}
+
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    margin: 0.5rem 0;
+}
+
+.course-level {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.course-duration {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.course-description {
+    color: #555;
+    line-height: 1.6;
+    padding: 0 1rem 1rem;
+}
+
+.course-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+/* Loading states */
+.product-grid.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Empty state styling */
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Product count indicator */
+.filter-results {
+    text-align: center;
+    padding: 1rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+}

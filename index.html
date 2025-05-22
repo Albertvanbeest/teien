@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teien Tamashii - Garden Soul</title>
+    
+    <!-- External CSS Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Custom CSS - Same structure as shop and courses -->
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="products.css">
+
+    <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J
+    document.addEventListener('keydown', e => {
+        if (
+            e.key === 'F12' ||
+            (e.ctrlKey && e.shiftKey && ['I', 'J'].includes(e.key)) ||
+            (e.ctrlKey && e.key === 'U')
+        ) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="Fotos/Logo.jpeg" alt="Teien Tamashii Logo">
+        <h1>Teien Tamashii</h1>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="care-tips.html">Care Tips</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="#types">Bonsai Types</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li id="admin-link" style="display: none;"><a href="admin.html" id="admin-page-link">Go to Admin</a></li>
+        <li id="auth-link"><a href="#login" id="login-link">Login</a></li>
+    </ul>
+    <div class="cart-icon" id="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-item-count"></span>
+    </div>
+    <div class="burger">
+        <i class="fas fa-bars"></i>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Teien Tamashii</h2>
+            <p class="japanese-text">庭園魂 - Garden Soul</p>
+            <p>Discover the art of bonsai and cultivate your own masterpiece</p>
+            <a href="#care" class="cta-btn">Explore Now</a>
+        </div>
+    </section>
+
+    <!-- Login/Register Modal -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-content">
+            <h2 id="auth-title">Login</h2>
+            <form id="auth-form">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="text" id="username" placeholder="Username" style="display: none;">
+                <button type="submit" class="cta-btn" id="auth-submit">Login</button>
+                <p id="auth-toggle">Don't have an account? <a href="#" id="toggle-link">Register</a></p>
+            </form>
+            <i class="fas fa-times" id="auth-close"></i>
+        </div>
+    </div>
+
+    <!-- Care Tips Section -->
+    <section id="care" class="care">
+        <h2>Bonsai Care Tips</h2>
+        <div class="care-grid">
+            <div class="care-card" data-aos="fade-up">
+                <img src="Fotos/Bonsai-watering.webp" alt="Watering Bonsai">
+                <h3>Watering</h3>
+                <p>Keep the soil moist but avoid overwatering. Use a spray bottle for precise control.</p>
+            </div>
+            <div class="care-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="Fotos/Bonsai-Pruning.webp" alt="Pruning Bonsai">
+                <h3>Pruning</h3>
+                <p>Trim regularly to maintain shape. Use sharp bonsai shears for clean cuts.</p>
+            </div>
+            <div class="care-card" data-aos="fade-up" data-aos-delay="400">
+                <img src="Fotos/Bonsai-Soil.avif" alt="Bonsai Soil">
+                <h3>Soil</h3>
+                <p>Use well-draining soil like akadama or a lava mix for healthy roots.</p>
+            </div>
+        </div>
+        <a href="care-tips.html" class="cta-btn">View All Care Tips</a>
+    </section>
+
+    <!-- Featured Courses Section -->
+    <section id="courses" class="featured-products">
+        <h2>Featured Courses</h2>
+        <div class="featured-content" id="featured-courses-content"></div>
+        <a href="courses.html" class="cta-btn view-all-btn">View All Courses</a>
+    </section>
+
+    <!-- Bonsai Types Section -->
+    <section id="types" class="types">
+        <h2>Popular Bonsai Types</h2>
+        <div class="types-slider">
+            <div class="type-card">
+                <img src="Fotos/Juniper-Bonsai.jpg" alt="Juniper Bonsai">
+                <h3>Juniper</h3>
+                <p>Perfect for beginners, with sturdy branches and easy maintenance.</p>
+            </div>
+            <div class="type-card">
+                <img src="Fotos/Maple-Bonsai.jpg" alt="Maple Bonsai">
+                <h3>Maple</h3>
+                <p>Stunning seasonal colors, ideal for aesthetic designs.</p>
+            </div>
+            <div class="type-card">
+                <img src="Fotos/Ficus-Bonsai.jpg" alt="Ficus Bonsai">
+                <h3>Ficus</h3>
+                <p>Suitable for indoor bonsai, with glossy leaves.</p>
+            </div>
+            <div class="type-card">
+                <img src="Fotos/Pine-Bonsai.jpg" alt="Pine Bonsai">
+                <h3>Pine</h3>
+                <p>Classic evergreen with timeless appeal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart -->
+    <div class="cart">
+        <h2 class="cart-title">Your Cart</h2>
+        <div class="cart-content"></div>
+        <div class="total">
+            <div class="total-title">Total</div>
+            <div class="total-price">R0</div>
+        </div>
+        
+        <!-- PayFast Payment Security Info -->
+        <div class="payment-security">
+            <div class="security-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Payment by PayFast</span>
+            </div>
+            <div style="color: #666; font-size: 0.8rem;">
+                Your payment information is encrypted and secure
+            </div>
+            <div class="payment-methods">
+                <span class="payment-method">💳 Credit Card</span>
+                <span class="payment-method">🏦 EFT</span>
+                <span class="payment-method">⚡ Instant EFT</span>
+                <span class="payment-method">📱 SnapScan</span>
+            </div>
+        </div>
+        
+        <button class="btn-buy">
+            <i class="fas fa-lock"></i> Secure Checkout with PayFast
+        </button>
+        <i class="fas fa-times" id="cart-close"></i>
+    </div>
+
+    <!-- Featured Products Section -->
+    <section id="featured" class="featured-products">
+        <h2>Featured Bonsai</h2>
+        <div class="featured-content" id="featured-content"></div>
+        <a href="shop.html" class="cta-btn view-all-btn">View All Products</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p class="contact-subtitle">Get in touch with us on WhatsApp</p>
+        <a href="https://wa.me/27123456789?text=Hi%20Teien%20Tamashii,%20I'm%20interested%20in%20your%20bonsai%20products%20and%20courses" 
+           class="cta-btn" 
+           target="_blank" 
+           style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1.2rem; text-decoration: none;">
+            <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+            Chat with us on WhatsApp
+        </a>
+        <p style="margin-top: 1rem; color: #ccc; font-size: 0.9rem;">
+            Available Monday - Friday, 9AM - 5PM
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Teien Tamashii. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCjA2u__EfEtTbWCISNFq-YtdH4iAmpZ6w",
+        authDomain: "teien-tamashii.firebaseapp.com",
+        projectId: "teien-tamashii",
+        storageBucket: "teien-tamashii.firebasestorage.app",
+        messagingSenderId: "754182439532",
+        appId: "1:754182439532:web:e478ed437e224a91be4e49",
+        measurementId: "G-0SXMM7NMLD"
+      };
+      
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+
+    <!-- Use the correct Firebase JavaScript file -->
+    <script src="scripts-firebase.js"></script>
+
+</body>
+</html>

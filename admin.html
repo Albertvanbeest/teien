@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teien Tamashii Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Fotos/Logo.jpeg" alt="Teien Tamashii Logo">
+            <h1>Teien Tamashii Admin</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Back to Main</a></li>
+            <li><a href="#" id="logout-link">Logout</a></li>
+        </ul>
+        <div class="burger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="admin-panel">
+        <h2>Admin Dashboard</h2>
+        
+        <!-- Admin Tab Navigation -->
+        <div class="admin-tabs">
+            <button class="tab-btn active" data-tab="products">Manage Products</button>
+            <button class="tab-btn" data-tab="courses">Manage Courses</button>
+        </div>
+        
+        <!-- Products Tab Content -->
+        <div class="admin-content tab-content active" id="products-tab">
+            <h3>Add New Product</h3>
+            <form id="product-form">
+                <input type="text" id="product-title" placeholder="Product Title (e.g., Juniper Bonsai)" required>
+                <input type="number" id="product-weight" placeholder="Weight (kg)" step="0.1" min="0.1" required>
+                <input type="number" id="product-price" placeholder="Price (R)" step="0.01" required>
+                <select id="product-category" required>
+                    <option value="">Select Categories</option>
+                    <option value="beginner,indoor">Beginner - Indoor</option>
+                    <option value="beginner,outdoor">Beginner - Outdoor</option>
+                    <option value="intermediate,indoor">Intermediate - Indoor</option>
+                    <option value="intermediate,outdoor">Intermediate - Outdoor</option>
+                    <option value="advanced,indoor">Advanced - Indoor</option>
+                    <option value="advanced,outdoor">Advanced - Outdoor</option>
+                </select>
+                <input type="number" id="product-quantity" placeholder="Quantity in Stock" min="0" required>
+                <label for="product-image" class="file-label">
+                    <span>Upload Image</span>
+                    <input type="file" id="product-image" accept="image/*" required>
+                </label>
+                <button type="submit" class="cta-btn">Add Product Variant</button>
+            </form>
+            <h3>Product List (Grouped by Type)</h3>
+            <div id="product-list"></div>
+        </div>
+        
+        <!-- Courses Tab Content -->
+        <div class="admin-content tab-content" id="courses-tab">
+            <h3>Add New Course</h3>
+            <form id="course-form">
+                <input type="text" id="course-title" placeholder="Course Title" required>
+                <textarea id="course-description" placeholder="Course Description" rows="4" required></textarea>
+                <input type="number" id="course-price" placeholder="Price (R)" step="0.01" required>
+                <input type="number" id="course-duration" placeholder="Duration (hours)" step="0.5" required>
+                <select id="course-level" required>
+                    <option value="">Select Level</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+                <select id="course-category" required>
+                    <option value="">Select Category</option>
+                    <option value="basics">Basics & Fundamentals</option>
+                    <option value="styling">Styling & Design</option>
+                    <option value="advanced-techniques">Advanced Techniques</option>
+                    <option value="species-specific">Species Specific</option>
+                    <option value="seasonal-care">Seasonal Care</option>
+                    <option value="tools-equipment">Tools & Equipment</option>
+                </select>
+                <label for="course-image" class="file-label">
+                    <span>Upload Course Image</span>
+                    <input type="file" id="course-image" accept="image/*" required>
+                </label>
+                <button type="submit" class="cta-btn">Add Course</button>
+            </form>
+            <h3>Courses List</h3>
+            <div id="courses-list"></div>
+        </div>
+    </section>
+
+    <!-- Edit Product Modal -->
+    <div class="edit-modal" id="edit-product-modal">
+        <div class="modal-content">
+            <h3>Edit Product Variant</h3>
+            <form id="edit-product-form">
+                <input type="hidden" id="edit-product-index">
+                <input type="text" id="edit-product-title" placeholder="Product Title" required>
+                <input type="number" id="edit-product-weight" placeholder="Weight (kg)" step="0.1" min="0.1" required>
+                <input type="number" id="edit-product-price" placeholder="Price (R)" step="0.01" required>
+                <select id="edit-product-category" required>
+                    <option value="">Select Categories</option>
+                    <option value="beginner,indoor">Beginner - Indoor</option>
+                    <option value="beginner,outdoor">Beginner - Outdoor</option>
+                    <option value="intermediate,indoor">Intermediate - Indoor</option>
+                    <option value="intermediate,outdoor">Intermediate - Outdoor</option>
+                    <option value="advanced,indoor">Advanced - Indoor</option>
+                    <option value="advanced,outdoor">Advanced - Outdoor</option>
+                </select>
+                <input type="number" id="edit-product-quantity" placeholder="Quantity in Stock" min="0" required>
+                <label for="edit-product-image" class="file-label">
+                    <span>Change Image (optional)</span>
+                    <input type="file" id="edit-product-image" accept="image/*">
+                </label>
+                <img id="edit-product-image-preview" src="" alt="Current Image" style="width: 200px; margin: 10px auto;">
+                <button type="submit" class="cta-btn">Save Changes</button>
+                <button type="button" class="cancel-btn" onclick="closeEditProductModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Course Modal -->
+    <div class="edit-modal" id="edit-course-modal">
+        <div class="modal-content">
+            <h3>Edit Course</h3>
+            <form id="edit-course-form">
+                <input type="hidden" id="edit-course-index">
+                <input type="text" id="edit-course-title" placeholder="Course Title" required>
+                <textarea id="edit-course-description" placeholder="Course Description" rows="4" required></textarea>
+                <input type="number" id="edit-course-price" placeholder="Price (R)" step="0.01" required>
+                <input type="number" id="edit-course-duration" placeholder="Duration (hours)" step="0.5" required>
+                <select id="edit-course-level" required>
+                    <option value="">Select Level</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+                <select id="edit-course-category" required>
+                    <option value="">Select Category</option>
+                    <option value="basics">Basics & Fundamentals</option>
+                    <option value="styling">Styling & Design</option>
+                    <option value="advanced-techniques">Advanced Techniques</option>
+                    <option value="species-specific">Species Specific</option>
+                    <option value="seasonal-care">Seasonal Care</option>
+                    <option value="tools-equipment">Tools & Equipment</option>
+                </select>
+                <label for="edit-course-image" class="file-label">
+                    <span>Change Image (optional)</span>
+                    <input type="file" id="edit-course-image" accept="image/*">
+                </label>
+                <img id="edit-course-image-preview" src="" alt="Current Image" style="width: 200px; margin: 10px auto;">
+                <button type="submit" class="cta-btn">Save Changes</button>
+                <button type="button" class="cancel-btn" onclick="closeEditCourseModal()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Teien Tamashii. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyCjA2u__EfEtTbWCISNFq-YtdH4iAmpZ6w",
+        authDomain: "teien-tamashii.firebaseapp.com",
+        projectId: "teien-tamashii",
+        storageBucket: "teien-tamashii.firebasestorage.app",
+        messagingSenderId: "754182439532",
+        appId: "1:754182439532:web:e478ed437e224a91be4e49",
+        measurementId: "G-0SXMM7NMLD"
+    };
+    
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    </script>
+
+    <!-- Admin JS -->
+    <script src="admin-firebase.js"></script>
+</body>
+</html>

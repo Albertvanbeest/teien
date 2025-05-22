@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success - Teien Tamashii</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .success-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #4caf50, #2e7d32);
+            padding: 2rem;
+        }
+        
+        .success-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: #4caf50;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .success-title {
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+            font-family: 'Lora', serif;
+        }
+        
+        .success-message {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        .order-summary {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .order-header {
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0 0;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #2e7d32;
+            border-top: 2px solid #2e7d32;
+            margin-top: 1rem;
+        }
+        
+        .success-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .success-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: #4caf50;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #e0e0e0;
+            color: #333;
+        }
+        
+        .success-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .payment-info {
+            background: #e8f5e8;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #2e7d32;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4caf50;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <!-- Loading State -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Processing your payment...</p>
+        </div>
+
+        <!-- Success State -->
+        <div class="success-card" id="success-card" style="display: none;">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1 class="success-title">Payment Successful!</h1>
+            
+            <div class="payment-info">
+                <i class="fas fa-shield-alt"></i>
+                Payment processed securely by PayFast
+            </div>
+            
+            <p class="success-message">
+                Thank you for your purchase! Your beautiful bonsai will be carefully prepared and shipped to you soon. 
+                You will receive an email confirmation with your order details and tracking information.
+            </p>
+            
+            <!-- Order Summary -->
+            <div class="order-summary" id="order-summary">
+                <div class="order-header">
+                    <i class="fas fa-receipt"></i> Order Summary
+                </div>
+                <div id="order-items">
+                    <!-- Items will be populated by JavaScript -->
+                </div>
+                <div class="order-total">
+                    <span>Total:</span>
+                    <span id="order-total">R0.00</span>
+                </div>
+            </div>
+            
+            <div class="success-actions">
+                <a href="index.html" class="success-btn btn-primary">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <a href="shop.html" class="success-btn btn-secondary">
+                    <i class="fas fa-shopping-bag"></i> Continue Shopping
+                </a>
+                <a href="care-tips.html" class="success-btn btn-secondary">
+                    <i class="fas fa-leaf"></i> Care Tips
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Show loading initially
+            document.getElementById('loading').style.display = 'block';
+            
+            // Simulate payment processing delay
+            setTimeout(() => {
+                processPaymentSuccess();
+            }, 2000);
+        });
+
+        function processPaymentSuccess() {
+            // Get order details from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('order');
+            
+            // Get pending order from localStorage
+            const pendingOrder = JSON.parse(localStorage.getItem('pendingOrder') || '{}');
+            
+            // Hide loading and show success
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('success-card').style.display = 'block';
+            
+            // Populate order summary if we have order data
+            if (pendingOrder.items && pendingOrder.items.length > 0) {
+                populateOrderSummary(pendingOrder);
+            } else {
+                // Fallback for demo
+                document.getElementById('order-summary').innerHTML = `
+                    <div class="order-header">
+                        <i class="fas fa-receipt"></i> Order Confirmation
+                    </div>
+                    <p>Order ID: ${orderId || 'DEMO_ORDER_123'}</p>
+                    <p>Your order has been received and is being processed.</p>
+                `;
+            }
+            
+            // Clear cart data
+            clearCartData();
+            
+            // Optional: Send confirmation to server
+            if (orderId) {
+                sendOrderConfirmation(orderId);
+            }
+        }
+
+        function populateOrderSummary(order) {
+            const orderItemsContainer = document.getElementById('order-items');
+            const orderTotalElement = document.getElementById('order-total');
+            
+            let itemsHTML = '';
+            order.items.forEach(item => {
+                itemsHTML += `
+                    <div class="order-item">
+                        <span>${item.name} x${item.quantity}</span>
+                        <span>R${(item.price * item.quantity).toFixed(2)}</span>
+                    </div>
+                `;
+            });
+            
+            orderItemsContainer.innerHTML = itemsHTML;
+            orderTotalElement.textContent = `R${order.total.toFixed(2)}`;
+        }
+
+        function clearCartData() {
+            // Clear all cart-related localStorage data
+            localStorage.removeItem('pendingOrder');
+            localStorage.removeItem('cart');
+            
+            // If parent window has cart, clear it too
+            if (window.opener && window.opener.cartContent) {
+                window.opener.cartContent.innerHTML = '';
+                window.opener.cartItemCount = 0;
+                if (window.opener.updateCartCount) {
+                    window.opener.updateCartCount(0);
+                }
+                if (window.opener.updateTotalPrice) {
+                    window.opener.updateTotalPrice();
+                }
+            }
+        }
+
+        function sendOrderConfirmation(orderId) {
+            // In a real application, you'd send this to your backend
+            fetch('/api/confirm-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    orderId: orderId,
+                    timestamp: new Date().toISOString(),
+                    source: 'payfast'
+                })
+            }).catch(err => {
+                console.log('Could not send confirmation:', err);
+                // Don't show error to user as payment was successful
+            });
+        }
+
+        // Auto-redirect after 30 seconds (optional)
+        setTimeout(() => {
+            if (confirm('Redirect to homepage?')) {
+                window.location.href = 'index.html';
+            }
+        }, 30000);
+    </script>
+</body>
+</html>

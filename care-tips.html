@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Care Tips - Teien Tamashii</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS imports matching index structure -->
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="logo">
+        <img src="Fotos/Logo.jpeg" alt="Teien Tamashii Logo">
+        <h1>Teien Tamashii</h1>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="care-tips.html" class="active">Care Tips</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="index.html#types">Bonsai Types</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li id="admin-link" style="display: none;"><a href="admin.html" id="admin-page-link">Go to Admin</a></li>
+        <li id="auth-link"><a href="#login" id="login-link">Login</a></li>
+    </ul>
+    <div class="cart-icon" id="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-item-count"></span>
+    </div>
+    <div class="burger">
+        <i class="fas fa-bars"></i>
+    </div>
+</nav>
+
+<!-- Care Tips Header -->
+<div class="care-tips-page">
+    <div class="care-tips-header">
+        <h1>Bonsai Care Tips</h1>
+        <p>庭園魂 - Essential knowledge for your bonsai journey</p>
+    </div>
+
+    <!-- Tips Grid -->
+    <div class="care-tips-content">
+        <div class="tips-grid" id="tips-content">
+            <!-- Static tips content will be loaded here -->
+        </div>
+    </div>
+</div>
+
+<!-- Cart -->
+<div class="cart">
+    <h2 class="cart-title">Your Cart</h2>
+    <div class="cart-content"></div>
+    <div class="total">
+        <div class="total-title">Total</div>
+        <div class="total-price">R0</div>
+    </div>
+    <button class="btn-buy">Buy Now</button>
+    <i class="fas fa-times" id="cart-close"></i>
+</div>
+
+<!-- Login/Register Modal -->
+<div class="auth-modal" id="auth-modal">
+    <div class="auth-content">
+        <h2 id="auth-title">Login</h2>
+        <form id="auth-form">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="text" id="username" placeholder="Username" style="display: none;">
+            <button type="submit" class="cta-btn" id="auth-submit">Login</button>
+            <p id="auth-toggle">Don't have an account? <a href="#" id="toggle-link">Register</a></p>
+        </form>
+        <i class="fas fa-times" id="auth-close"></i>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Teien Tamashii. All Rights Reserved.</p>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+</footer>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+<!-- Initialize Firebase -->
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCjA2u__EfEtTbWCISNFq-YtdH4iAmpZ6w",
+    authDomain: "teien-tamashii.firebaseapp.com",
+    projectId: "teien-tamashii",
+    storageBucket: "teien-tamashii.firebasestorage.app",
+    messagingSenderId: "754182439532",
+    appId: "1:754182439532:web:e478ed437e224a91be4e49",
+    measurementId: "G-0SXMM7NMLD"
+  };
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
+<!-- Use the correct Firebase JavaScript file -->
+<script src="scripts-firebase.js"></script>
+
+</body>
+</html>

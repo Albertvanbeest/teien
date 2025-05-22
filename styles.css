@@ -1,0 +1,41 @@
+/* Main Stylesheet - Teien Tamashii */
+/* Import all component stylesheets */
+
+@import url('base.css');
+@import url('navigation.css');
+@import url('home.css');
+@import url('auth.css');
+@import url('cart.css');
+@import url('products.css');
+@import url('shop.css');
+@import url('admin.css');
+
+/* Additional utility styles that don't fit in specific categories */
+
+/* Loading states */
+.weight-variants-list p {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Empty State */
+.weight-variants-list:empty::after {
+    content: 'No weight variants found.';
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Modal Animation */
+.weight-modal-content {
+    transition: all 0.3s ease;
+}
+
+.weight-modal:not(.active) .weight-modal-content {
+    transform: translateY(-50px) scale(0.8);
+    opacity: 0;
+}
