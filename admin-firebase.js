@@ -179,22 +179,71 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    function getCategoryText(category) {
-        if (!category) return 'General bonsai';
-        const categories = category.split(',');
-        const levels = ['beginner', 'intermediate', 'advanced'];
-        const locations = ['indoor', 'outdoor'];
-        
-        const level = categories.find(c => levels.includes(c));
-        const location = categories.find(c => locations.includes(c));
-        
-        let text = '';
-        if (level) text += level.charAt(0).toUpperCase() + level.slice(1) + ' level';
-        if (level && location) text += ', ';
-        if (location) text += location.charAt(0).toUpperCase() + location.slice(1);
-        
-        return text || 'General bonsai';
+    // Updated category functions for admin-firebase.js
+// Replace the existing getCategoryText function with this updated version:
+
+function getCategoryText(category) {
+    if (!category) return 'General Product';
+    
+    // Category mapping for display names
+    const categoryMap = {
+        'prebonsai': 'Pre-Bonsai',
+        'seedlings': 'Seedlings',
+        'silver-bonsai': 'Silver Bonsai',
+        'gold-bonsai': 'Gold Bonsai',
+        'platinum-bonsai': 'Platinum Bonsai',
+        'imported-bonsai': 'Imported Bonsai',
+        'bonsai-pots': 'Bonsai Pots',
+        'bonsai-tools': 'Bonsai Tools',
+        'bonsai-wire': 'Bonsai Wire',
+        'bonsai-accessories': 'Bonsai Accessories',
+        'orchids': 'Orchids',
+        'airplants': 'Air Plants',
+        'terrariums': 'Terrariums',
+        'aquariums': 'Aquariums',
+        'aqua-scapes': 'Aqua Scapes',
+        'rocks': 'Rocks',
+        'driftwood': 'Driftwood',
+        'pebbles': 'Pebbles',
+        'mosses': 'Mosses',
+        'pot-dressings': 'Pot Dressings'
+    };
+    
+    // Handle multiple categories (if still using comma-separated values)
+    if (category.includes(',')) {
+        const categories = category.split(',').map(cat => cat.trim());
+        return categories.map(cat => categoryMap[cat] || cat.charAt(0).toUpperCase() + cat.slice(1)).join(', ');
     }
+    
+    // Single category
+    return categoryMap[category] || category.charAt(0).toUpperCase() + category.slice(1);
+}
+
+// Updated validation for new categories in product form submission
+function validateProductCategory(category) {
+    const validCategories = [
+        'prebonsai', 'seedlings', 'silver-bonsai', 'gold-bonsai', 'platinum-bonsai',
+        'imported-bonsai', 'bonsai-pots', 'bonsai-tools', 'bonsai-wire', 'bonsai-accessories',
+        'orchids', 'airplants', 'terrariums', 'aquariums', 'aqua-scapes',
+        'rocks', 'driftwood', 'pebbles', 'mosses', 'pot-dressings'
+    ];
+    
+    if (category.includes(',')) {
+        const categories = category.split(',').map(cat => cat.trim());
+        return categories.every(cat => validCategories.includes(cat));
+    }
+    
+    return validCategories.includes(category);
+}
+
+// Add this validation to your existing product form submission
+// Update the existing productForm.addEventListener('submit', ...) to include:
+/*
+if (!validateProductCategory(category)) {
+    showAdminMessage('Please select a valid category.', 'error');
+    return;
+}
+*/
 
     // Weight Management Modal Functions
     window.openWeightManagementModal = function(productTitle) {
