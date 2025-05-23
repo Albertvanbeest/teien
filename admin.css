@@ -1,4 +1,4 @@
-/* Admin Panel Styling */
+/* Admin Panel Styling - Green Theme */
 
 .admin-panel {
     padding-top: 80px;
@@ -41,20 +41,20 @@
 }
 
 .admin-content form.highlight {
-    background: linear-gradient(135deg, #ffebee, #fff);
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 8px 25px rgba(211, 47, 47, 0.2);
+    background: linear-gradient(135deg, #e8f5e9, #fff);
+    border: 2px solid var(--green-primary);
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.2);
     animation: highlightPulse 2s ease-in-out;
 }
 
 @keyframes highlightPulse {
     0%, 100% {
         transform: scale(1);
-        box-shadow: 0 8px 25px rgba(211, 47, 47, 0.2);
+        box-shadow: 0 8px 25px rgba(46, 125, 50, 0.2);
     }
     50% {
         transform: scale(1.02);
-        box-shadow: 0 12px 35px rgba(211, 47, 47, 0.3);
+        box-shadow: 0 12px 35px rgba(46, 125, 50, 0.3);
     }
 }
 
@@ -68,13 +68,13 @@
 
 .admin-content input:focus, .admin-content select:focus, .admin-content textarea:focus {
     outline: none;
-    border-color: var(--black-color);
+    border-color: var(--green-primary);
 }
 
 .admin-content input:hover,
 .admin-content select:hover,
 .admin-content textarea:hover {
-    border-color: var(--accent-color);
+    border-color: var(--green-secondary);
 }
 
 .file-label {
@@ -90,7 +90,7 @@
 }
 
 .file-label:hover {
-    border-color: var(--black-color);
+    border-color: var(--green-primary);
     background: #f0f0f0;
 }
 
@@ -105,7 +105,7 @@
 }
 
 .admin-content button {
-    background: var(--black-color);
+    background: var(--green-primary);
     color: white;
     padding: 0.8rem;
     border: none;
@@ -118,7 +118,7 @@
 }
 
 .admin-content button:hover {
-    background: var(--dark-gray);
+    background: var(--green-dark);
     transform: translateY(-2px);
 }
 
@@ -157,7 +157,7 @@
 }
 
 .tab-btn.active {
-    background: var(--black-color);
+    background: var(--green-primary);
     color: white;
 }
 
@@ -190,8 +190,8 @@
 }
 
 .product-group:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 8px 30px rgba(211, 47, 47, 0.15);
+    border-color: var(--green-primary);
+    box-shadow: 0 8px 30px rgba(46, 125, 50, 0.15);
     transform: translateY(-2px);
 }
 
@@ -210,8 +210,8 @@
     object-fit: cover;
     border-radius: 12px;
     margin-right: 1.5rem;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
+    border: 3px solid var(--green-primary);
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
     flex-shrink: 0;
 }
 
@@ -222,7 +222,7 @@
 
 .product-info h3 {
     margin: 0 0 0.5rem 0;
-    color: var(--primary-color);
+    color: var(--green-primary);
     font-size: 1.4rem;
     font-weight: 700;
 }
@@ -235,12 +235,12 @@
 }
 
 .variant-count {
-    color: var(--primary-color);
+    color: var(--green-primary);
     font-weight: 600;
     font-size: 1rem;
     margin: 0.5rem 0 0 0;
     padding: 0.3rem 0.8rem;
-    background: rgba(211, 47, 47, 0.1);
+    background: rgba(46, 125, 50, 0.1);
     border-radius: 20px;
     display: inline-block;
 }
@@ -273,7 +273,7 @@
 
 .variant-item:hover {
     background: #ffffff;
-    box-shadow: inset 0 0 0 2px rgba(211, 47, 47, 0.1);
+    box-shadow: inset 0 0 0 2px rgba(46, 125, 50, 0.1);
 }
 
 .variant-item:last-child {
@@ -281,20 +281,20 @@
 }
 
 .variant-weight {
-    background: var(--primary-color);
+    background: var(--green-primary);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-weight: 700;
     font-size: 1rem;
     text-align: center;
-    box-shadow: 0 3px 8px rgba(211, 47, 47, 0.3);
+    box-shadow: 0 3px 8px rgba(46, 125, 50, 0.3);
     min-width: 80px;
 }
 
 .variant-price {
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--green-primary);
     font-size: 1.2rem;
     text-align: center;
 }
@@ -367,88 +367,6 @@
     box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
 }
 
-/* Weight System Admin Styles */
-.product-group {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-    overflow: hidden;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.product-group::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(211, 47, 47, 0.1), transparent);
-    transition: left 0.5s;
-    z-index: 1;
-}
-
-.product-group:hover::before {
-    left: 100%;
-}
-
-.product-group:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(211, 47, 47, 0.15);
-}
-
-.product-group-header {
-    display: flex;
-    align-items: center;
-    padding: 1.5rem;
-    background: linear-gradient(135deg, #f8f9fa, #fff);
-    border-bottom: 1px solid #dee2e6;
-}
-
-.product-group-header img {
-    margin-right: 1rem;
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.2);
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.product-info {
-    flex: 1;
-}
-
-.product-info h3 {
-    margin: 0 0 0.5rem 0;
-    color: var(--primary-color);
-    font-size: 1.3rem;
-}
-
-.product-info .product-category {
-    color: #666;
-    margin: 0.25rem 0;
-    font-size: 0.9rem;
-}
-
-.variant-count {
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin: 0;
-}
-
-/* Group Actions */
-.group-actions {
-    display: flex;
-    gap: 0.5rem;
-    flex-direction: column;
-}
-
 /* Enhanced Group Actions for better PC visibility */
 .manage-weights-btn, .add-variant-btn, .delete-group-btn {
     padding: 0.8rem 1.5rem;
@@ -484,50 +402,6 @@
     border-color: #4caf50;
 }
 
-.manage-weights-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s;
-}
-
-.manage-weights-btn:hover::before {
-    left: 100%;
-}
-
-.add-variant-btn {
-    background: linear-gradient(135deg, #4caf50, #66bb6a);
-    color: white;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-    border: 2px solid transparent;
-}
-
-.add-variant-btn:hover {
-    background: linear-gradient(135deg, #388e3c, #4caf50);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
-    border-color: #66bb6a;
-}
-
-.add-variant-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s;
-}
-
-.add-variant-btn:hover::before {
-    left: 100%;
-}
-
 .delete-group-btn {
     background: linear-gradient(135deg, #ff6b35, #ff8a65);
     color: white;
@@ -540,92 +414,6 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
     border-color: #ff8a65;
-}
-
-.delete-group-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s;
-}
-
-.delete-group-btn:hover::before {
-    left: 100%;
-}
-
-/* Enhanced button icons */
-.manage-weights-btn i, .add-variant-btn i, .delete-group-btn i {
-    font-size: 1.1rem;
-    margin-right: 0.2rem;
-}
-
-/* Focus states */
-.manage-weights-btn:focus, .add-variant-btn:focus {
-    outline: 3px solid rgba(76, 175, 80, 0.5);
-    outline-offset: 2px;
-}
-
-.delete-group-btn:focus {
-    outline: 3px solid rgba(255, 107, 53, 0.5);
-    outline-offset: 2px;
-}
-
-/* Variant Items */
-.product-variants {
-    padding: 0;
-}
-
-.variant-item {
-    display: flex;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid #f0f0f0;
-    gap: 1rem;
-    transition: background 0.3s ease;
-}
-
-.variant-item:hover {
-    background: #f8f9fa;
-}
-
-.variant-item:last-child {
-    border-bottom: none;
-}
-
-.variant-weight {
-    background: var(--primary-color);
-    color: white;
-    padding: 0.4rem 0.8rem;
-    border-radius: 15px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    min-width: 60px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(211, 47, 47, 0.3);
-}
-
-.variant-price {
-    font-weight: 700;
-    color: var(--primary-color);
-    font-size: 1.1rem;
-    min-width: 80px;
-}
-
-.variant-stock {
-    flex: 1;
-    font-weight: 600;
-}
-
-.variant-stock.in-stock {
-    color: var(--green-accent);
-}
-
-.variant-stock.out-of-stock {
-    color: var(--primary-color);
 }
 
 /* Admin Actions Styling - Enhanced for PC visibility */
@@ -670,21 +458,6 @@
     border-color: #4caf50;
 }
 
-.edit-product::before, .edit-tip::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s;
-}
-
-.edit-product:hover::before, .edit-tip:hover::before {
-    left: 100%;
-}
-
 .delete-product, .delete-tip {
     background: linear-gradient(135deg, #d32f2f, #f44336);
     color: white;
@@ -697,56 +470,6 @@
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(211, 47, 47, 0.4);
     border-color: #f44336;
-}
-
-.delete-product::before, .delete-tip::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s;
-}
-
-.delete-product:hover::before, .delete-tip:hover::before {
-    left: 100%;
-}
-
-/* Button icons styling */
-.edit-product i, .edit-tip i, .delete-product i, .delete-tip i {
-    font-size: 1.1rem;
-    margin-right: 0.2rem;
-}
-
-/* Enhanced button focus states for accessibility */
-.edit-product:focus, .edit-tip:focus {
-    outline: 3px solid rgba(76, 175, 80, 0.5);
-    outline-offset: 2px;
-}
-
-.delete-product:focus, .delete-tip:focus {
-    outline: 3px solid rgba(244, 67, 54, 0.5);
-    outline-offset: 2px;
-}
-
-.variant-actions {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.variant-actions button {
-    padding: 0.5rem 0.8rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: all 0.3s;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
 }
 
 /* Edit Modal */
@@ -802,7 +525,7 @@
 
 .modal-content input:focus, .modal-content select:focus, .modal-content textarea:focus {
     outline: none;
-    border-color: var(--black-color);
+    border-color: var(--green-primary);
 }
 
 .cancel-btn {
@@ -822,12 +545,151 @@
     background: #555;
 }
 
-#edit-product-image-preview, #edit-tip-image-preview {
-    display: block;
+/* Admin Message Styles */
+.admin-message {
+    padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    margin: 10px auto;
+    margin: 1rem 0;
+    font-weight: 600;
+    text-align: center;
+    animation: slideInMessage 0.3s ease-out;
+}
+
+.admin-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-left: 4px solid #28a745;
+}
+
+.admin-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-left: 4px solid #dc3545;
+}
+
+/* Course Management Styles - Horizontal Layout */
+#courses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.tip-box {
+    background: white;
+    padding: 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.tip-box:hover {
+    transform: translateY(-2px);
+    border-color: var(--green-primary);
+    box-shadow: 0 8px 30px rgba(46, 125, 50, 0.15);
+}
+
+/* Horizontal Course Layout */
+.course-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-bottom: 2px solid #e9ecef;
+    min-height: 120px;
+}
+
+.tip-box img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 1.5rem;
+    border: 3px solid var(--green-primary);
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+.course-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.tip-box h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--green-primary);
+    font-weight: 700;
+}
+
+.tip-category {
+    font-size: 1rem;
+    color: var(--green-primary);
+    font-style: normal;
+    font-weight: 600;
+    background: rgba(46, 125, 50, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.course-details {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.course-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--green-primary);
+}
+
+.course-duration {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.course-level {
+    font-size: 0.9rem;
+    color: #4caf50;
+    font-weight: 600;
+    background: rgba(76, 175, 80, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* Course Description Section */
+.tip-description {
+    text-align: left;
+    margin: 0;
+    padding: 1.5rem 2rem;
+    background: #f8f9fa;
+    border-left: 4px solid var(--green-primary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    min-height: 60px;
+}
+
+/* Enhanced Course Actions */
+.course-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding: 1.5rem 2rem;
+    background: #ffffff;
+    border-top: 1px solid #e9ecef;
 }
 
 /* Weight Management Modal Styles */
@@ -865,7 +727,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    background: linear-gradient(135deg, var(--primary-color), #b71c1c);
+    background: linear-gradient(135deg, var(--green-primary), var(--green-dark));
     color: white;
 }
 
@@ -924,11 +786,11 @@
 }
 
 .add-weight {
-    background: linear-gradient(135deg, var(--green-accent), #388e3c);
+    background: linear-gradient(135deg, var(--green-secondary), var(--green-primary));
 }
 
 .add-weight:hover {
-    background: linear-gradient(135deg, #388e3c, var(--green-accent));
+    background: linear-gradient(135deg, var(--green-primary), var(--green-secondary));
     transform: translateY(-2px);
     box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
 }
@@ -951,10 +813,10 @@
 }
 
 .weight-variant-item:hover {
-    border-color: var(--primary-color);
+    border-color: var(--green-primary);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.2);
-    background: linear-gradient(135deg, #fff, #ffebee);
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.2);
+    background: linear-gradient(135deg, #fff, #e8f5e9);
 }
 
 .variant-info {
@@ -964,7 +826,7 @@
 }
 
 .variant-weight-display {
-    background: var(--primary-color);
+    background: var(--green-primary);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -972,13 +834,13 @@
     font-size: 1rem;
     min-width: 70px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
 }
 
 .variant-price-display {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--green-primary);
     min-width: 80px;
 }
 
@@ -988,348 +850,51 @@
 }
 
 .variant-stock-display.in-stock {
-    color: var(--green-accent);
+    color: var(--green-primary);
 }
 
 .variant-stock-display.out-of-stock {
-    color: var(--primary-color);
+    color: var(--error-color);
 }
 
-.variant-edit-btn, .variant-delete-btn {
-    padding: 0.5rem 0.8rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 600;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.variant-edit-btn {
-    background: var(--primary-color);
-    color: white;
-    box-shadow: 0 2px 5px rgba(211, 47, 47, 0.3);
-}
-
-.variant-edit-btn:hover {
-    background: #b71c1c;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(211, 47, 47, 0.4);
-}
-
-.variant-delete-btn {
-    background: #ff6b35;
-    color: white;
-    box-shadow: 0 2px 5px rgba(255, 107, 53, 0.3);
-}
-
-.variant-delete-btn:hover {
-    background: #e55a2b;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(255, 107, 53, 0.4);
-}
-
-/* Admin Message Styles */
-.admin-message {
-    padding: 1rem;
-    border-radius: 8px;
-    margin: 1rem 0;
-    font-weight: 600;
-    text-align: center;
-    animation: slideInMessage 0.3s ease-out;
-}
-
-.admin-message.success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    border-left: 4px solid #28a745;
-}
-
-.admin-message.error {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-    border-left: 4px solid #dc3545;
-}
-
-/* Course Management Styles - Horizontal Layout */
-#courses-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.tip-box {
-    background: white;
-    padding: 0;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: all 0.3s ease;
-    overflow: hidden;
-    border: 2px solid transparent;
-}
-
-.tip-box:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary-color);
-    box-shadow: 0 8px 30px rgba(211, 47, 47, 0.15);
-}
-
-/* Horizontal Course Layout */
-.course-header {
-    display: flex;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    background: linear-gradient(135deg, #f8f9fa, #fff);
-    border-bottom: 2px solid #e9ecef;
-    min-height: 120px;
-}
-
-.tip-box img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-right: 1.5rem;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.2);
-    flex-shrink: 0;
-    margin-bottom: 0;
-}
-
-.course-info {
-    flex: 1;
-    min-width: 0;
-}
-
-.tip-box h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-.tip-category {
-    font-size: 1rem;
-    color: var(--primary-color);
-    font-style: normal;
-    font-weight: 600;
-    background: rgba(211, 47, 47, 0.1);
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    display: inline-block;
-    margin-bottom: 0.5rem;
-}
-
-.course-details {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    margin-top: 0.5rem;
-}
-
-.course-price {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-.course-duration {
-    font-size: 1rem;
-    color: #666;
-    font-weight: 600;
-}
-
-.course-level {
-    font-size: 0.9rem;
-    color: #4caf50;
-    font-weight: 600;
-    background: rgba(76, 175, 80, 0.1);
-    padding: 0.2rem 0.6rem;
-    border-radius: 12px;
-    display: inline-block;
-}
-
-/* Course Description Section */
-.tip-description {
-    text-align: left;
-    margin: 0;
-    padding: 1.5rem 2rem;
-    background: #f8f9fa;
-    border-left: 4px solid var(--primary-color);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #555;
-    min-height: 60px;
-}
-
-/* Enhanced Course Actions */
-.course-actions {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    padding: 1.5rem 2rem;
-    background: #ffffff;
-    border-top: 1px solid #e9ecef;
-}
-
-.edit-tip, .delete-tip {
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    min-width: 120px;
-    justify-content: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.edit-tip {
-    background: linear-gradient(135deg, #2e7d32, #4caf50);
-    color: white;
-    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
-}
-
-.edit-tip:hover {
-    background: linear-gradient(135deg, #1b5e20, #2e7d32);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(46, 125, 50, 0.4);
-}
-
-.delete-tip {
-    background: linear-gradient(135deg, #d32f2f, #f44336);
-    color: white;
-    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
-}
-
-.delete-tip:hover {
-    background: linear-gradient(135deg, #b71c1c, #d32f2f);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(211, 47, 47, 0.4);
-}
-
-/* Course Structure Override - Remove default tip-box styling conflicts */
-.tip-box .course-header + .tip-description + .course-actions {
-    /* This ensures proper layout flow */
-}
-
-/* Enhanced course layout for better admin management */
-.course-admin-layout {
-    display: flex;
-    flex-direction: column;
-}
-
-.course-header-content {
-    display: grid;
-    grid-template-columns: 80px 1fr auto;
-    gap: 1.5rem;
-    align-items: start;
+/* Enhanced button animations and effects */
+.manage-weights-btn::before, .add-variant-btn::before, .delete-group-btn::before,
+.edit-product::before, .edit-tip::before, .delete-product::before, .delete-tip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
     width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
 }
 
-.course-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+.manage-weights-btn:hover::before, .add-variant-btn:hover::before,
+.edit-product:hover::before, .edit-tip:hover::before {
+    left: 100%;
 }
 
-.course-tags {
-    display: flex;
-    gap: 0.8rem;
-    align-items: center;
-    flex-wrap: wrap;
+.delete-group-btn:hover::before, .delete-product:hover::before, .delete-tip:hover::before {
+    left: 100%;
 }
 
-/* Responsive course layout */
-@media (max-width: 768px) {
-    .course-header {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.5rem;
-    }
-    
-    .tip-box img {
-        margin: 0 0 1rem 0;
-    }
-    
-    .course-details {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: center;
-    }
-    
-    .course-actions {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .edit-tip, .delete-tip {
-        width: 100%;
-        max-width: 200px;
-    }
-    
-    .tip-description {
-        padding: 1rem;
-    }
+/* Button icons styling */
+.edit-product i, .edit-tip i, .delete-product i, .delete-tip i,
+.manage-weights-btn i, .add-variant-btn i, .delete-group-btn i {
+    font-size: 1.1rem;
+    margin-right: 0.2rem;
 }
 
-@media (min-width: 1024px) {
-    .course-header {
-        padding: 2rem 3rem;
-        min-height: 140px;
-    }
-    
-    .tip-box img {
-        width: 100px;
-        height: 100px;
-        margin-right: 2rem;
-    }
-    
-    .tip-box h3 {
-        font-size: 1.6rem;
-    }
-    
-    .course-details {
-        gap: 2.5rem;
-    }
-    
-    .course-price {
-        font-size: 1.3rem;
-    }
-    
-    .course-duration {
-        font-size: 1.1rem;
-    }
-    
-    .tip-description {
-        margin: 0;
-        padding: 2rem 3rem;
-        font-size: 1rem;
-    }
-    
-    .course-actions {
-        padding: 2rem 3rem;
-        gap: 1.5rem;
-    }
-    
-    .edit-tip, .delete-tip {
-        padding: 1rem 1.8rem;
-        font-size: 1.1rem;
-        min-width: 140px;
-    }
+/* Enhanced button focus states for accessibility */
+.edit-product:focus, .edit-tip:focus, .manage-weights-btn:focus, .add-variant-btn:focus {
+    outline: 3px solid rgba(76, 175, 80, 0.5);
+    outline-offset: 2px;
+}
+
+.delete-product:focus, .delete-tip:focus, .delete-group-btn:focus {
+    outline: 3px solid rgba(244, 67, 54, 0.5);
+    outline-offset: 2px;
 }
 
 /* Responsive Updates */
@@ -1402,6 +967,37 @@
     
     .manage-weights-btn {
         width: 100%;
+    }
+    
+    .course-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .tip-box img {
+        margin: 0 0 1rem 0;
+    }
+    
+    .course-details {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .course-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .edit-tip, .delete-tip {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .tip-description {
+        padding: 1rem;
     }
 }
 
@@ -1496,5 +1092,49 @@
     
     .variant-item {
         padding: 1.5rem 2rem;
+    }
+    
+    .course-header {
+        padding: 2rem 3rem;
+        min-height: 140px;
+    }
+    
+    .tip-box img {
+        width: 100px;
+        height: 100px;
+        margin-right: 2rem;
+    }
+    
+    .tip-box h3 {
+        font-size: 1.6rem;
+    }
+    
+    .course-details {
+        gap: 2.5rem;
+    }
+    
+    .course-price {
+        font-size: 1.3rem;
+    }
+    
+    .course-duration {
+        font-size: 1.1rem;
+    }
+    
+    .tip-description {
+        margin: 0;
+        padding: 2rem 3rem;
+        font-size: 1rem;
+    }
+    
+    .course-actions {
+        padding: 2rem 3rem;
+        gap: 1.5rem;
+    }
+    
+    .edit-tip, .delete-tip {
+        padding: 1rem 1.8rem;
+        font-size: 1.1rem;
+        min-width: 140px;
     }
 }

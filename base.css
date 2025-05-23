@@ -1,4 +1,4 @@
-/* Base Styles and Variables - Japanese Flag Theme */
+/* Base Styles and Variables - Green Theme */
 * {
     margin: 0;
     padding: 0;
@@ -6,21 +6,21 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Color Variables - Japanese Flag Theme */
+/* Color Variables - Green Theme */
 :root {
-    --primary-color: #bc002d;
-    --secondary-color: #8b0000;
-    --accent-color: #dc143c;
-    --green-accent: #dc143c;
+    --primary-color: #2e7d32;
+    --secondary-color: #1b5e20;
+    --accent-color: #4caf50;
+    --green-accent: #4caf50;
     --black-color: #1a1a1a;
     --dark-gray: #333333;
     --background-color: #fafafa;
     --card-background: #ffffff;
-    --error-color: #bc002d;
+    --error-color: #d32f2f;
     --border-color: #f0f0f0;
-    --red-primary: #bc002d;
-    --red-secondary: #dc143c;
-    --red-dark: #8b0000;
+    --green-primary: #2e7d32;
+    --green-secondary: #4caf50;
+    --green-dark: #1b5e20;
 }
 
 body {
@@ -39,7 +39,7 @@ h1, h2, h3 {
 .cta-btn {
     display: inline-block;
     padding: 0.8rem 1.5rem;
-    background: var(--red-primary);
+    background: var(--green-primary);
     color: white;
     text-decoration: none;
     border-radius: 25px;
@@ -50,10 +50,10 @@ h1, h2, h3 {
 }
 
 .cta-btn:hover {
-    background: var(--red-dark);
-    border-color: var(--red-secondary);
+    background: var(--green-dark);
+    border-color: var(--green-secondary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(188, 0, 45, 0.3);
+    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
 }
 
 /* Form Elements */
@@ -67,8 +67,8 @@ input, select, textarea {
 
 input:focus, select:focus, textarea:focus {
     outline: none;
-    border-color: var(--red-primary);
-    box-shadow: 0 0 0 2px rgba(188, 0, 45, 0.1);
+    border-color: var(--green-primary);
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.1);
 }
 
 /* Animations */
@@ -125,5 +125,5 @@ footer {
 }
 
 .social-links a:hover {
-    color: var(--red-primary);
+    color: var(--green-primary);
 }

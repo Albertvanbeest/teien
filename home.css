@@ -1,4 +1,4 @@
-/* Home Page Styles */
+/* Home Page Styles - Green Theme */
 
 /* Hero Section */
 .hero {
@@ -23,9 +23,9 @@
 /* Japanese Text Enhancement */
 .japanese-text {
     font-size: 1.2rem;
-    color: #bc002d;
+    color: #4caf50;
     margin-bottom: 1rem;
-    text-shadow: 0 1px 3px rgba(188, 0, 45, 0.3);
+    text-shadow: 0 1px 3px rgba(76, 175, 80, 0.3);
 }
 
 .hero-content p {
@@ -222,9 +222,9 @@
     transition: background 0.3s;
 }
 
-/* Contact Section with Japanese Theme */
+/* Contact Section with Green Theme */
 .contact button:hover {
-    background: #8b0000;
+    background: var(--green-dark);
 }
 
 /* Enhanced contact form */

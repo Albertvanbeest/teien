@@ -1,4 +1,4 @@
-/* Authentication Modal Styles */
+/* Authentication Modal Styles - Green Theme */
 
 .auth-modal {
     position: fixed;
@@ -51,12 +51,12 @@
 
 .auth-content input:focus {
     outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+    border-color: var(--green-primary);
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
 }
 
 .auth-content button {
-    background: var(--black-color);
+    background: var(--green-primary);
     color: white;
     padding: 0.8rem;
     border: none;
@@ -69,7 +69,7 @@
 }
 
 .auth-content button:hover {
-    background: var(--dark-gray);
+    background: var(--green-dark);
 }
 
 .auth-content button:disabled {
@@ -163,12 +163,12 @@
 }
 
 .auth-content input:hover {
-    border-color: var(--accent-color);
+    border-color: var(--green-primary);
 }
 
 /* Admin Dashboard Welcome Message */
 .admin-welcome {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(135deg, var(--green-primary), var(--green-secondary));
     color: white;
     padding: 1rem;
     border-radius: 8px;
