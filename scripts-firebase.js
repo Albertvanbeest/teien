@@ -481,143 +481,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Updated category functions for scripts-firebase.js
-// Replace the existing getCategoryText function with this updated version:
-
-function getCategoryText(category) {
-    if (!category) return 'General Product';
-    
-    // Category mapping for display names
-    const categoryMap = {
-        'prebonsai': 'Pre-Bonsai',
-        'seedlings': 'Seedlings',
-        'silver-bonsai': 'Silver Bonsai',
-        'gold-bonsai': 'Gold Bonsai',
-        'platinum-bonsai': 'Platinum Bonsai',
-        'imported-bonsai': 'Imported Bonsai',
-        'bonsai-pots': 'Bonsai Pots',
-        'bonsai-tools': 'Bonsai Tools',
-        'bonsai-wire': 'Bonsai Wire',
-        'bonsai-accessories': 'Bonsai Accessories',
-        'orchids': 'Orchids',
-        'airplants': 'Air Plants',
-        'terrariums': 'Terrariums',
-        'aquariums': 'Aquariums',
-        'aqua-scapes': 'Aqua Scapes',
-        'rocks': 'Rocks',
-        'driftwood': 'Driftwood',
-        'pebbles': 'Pebbles',
-        'mosses': 'Mosses',
-        'pot-dressings': 'Pot Dressings'
-    };
-    
-    // Handle multiple categories (if still using comma-separated values)
-    if (category.includes(',')) {
-        const categories = category.split(',').map(cat => cat.trim());
-        return categories.map(cat => categoryMap[cat] || cat.charAt(0).toUpperCase() + cat.slice(1)).join(', ');
+    function getCategoryText(category) {
+        if (!category) return 'General bonsai';
+        const categories = category.split(',');
+        const levels = ['beginner', 'intermediate', 'advanced'];
+        const locations = ['indoor', 'outdoor'];
+        
+        const level = categories.find(c => levels.includes(c));
+        const location = categories.find(c => locations.includes(c));
+        
+        let text = '';
+        if (level) text += level.charAt(0).toUpperCase() + level.slice(1) + ' level';
+        if (level && location) text += ', ';
+        if (location) text += location.charAt(0).toUpperCase() + location.slice(1);
+        
+        return text || 'General bonsai';
     }
-    
-    // Single category
-    return categoryMap[category] || category.charAt(0).toUpperCase() + category.slice(1);
-}
-
-// Updated loadProducts function to handle new categories
-function loadProducts(filterCategory = 'all') {
-    console.log('Loading products with filter:', filterCategory);
-    const productContent = document.querySelector('#product-content');
-    if (!productContent) {
-        console.error('Product content element not found');
-        return;
-    }
-
-    // Show loading indicator
-    productContent.innerHTML = '<p>Loading products...</p>';
-
-    // Get all products from Firestore
-    db.collection('products').get().then((snapshot) => {
-        if (snapshot.empty) {
-            productContent.innerHTML = '<p>No products available. Admin can add products from the admin panel.</p>';
-            return;
-        }
-        
-        // Group products by title
-        const groupedProducts = {};
-        snapshot.forEach(doc => {
-            const p = doc.data();
-            
-            // Apply filtering logic for new categories
-            let shouldInclude = false;
-            
-            if (filterCategory === 'all') {
-                shouldInclude = true;
-            } else if (p.category) {
-                // Handle both single category and comma-separated categories
-                const categories = p.category.includes(',') 
-                    ? p.category.split(',').map(cat => cat.trim().toLowerCase())
-                    : [p.category.toLowerCase()];
-                
-                shouldInclude = categories.includes(filterCategory.toLowerCase());
-            }
-            
-            if (shouldInclude && p.quantity > 0) { // Only show products in stock
-                const key = p.title;
-                if (!groupedProducts[key]) {
-                    groupedProducts[key] = [];
-                }
-                groupedProducts[key].push({ id: doc.id, ...p });
-            }
-        });
-        
-        let productsHTML = '';
-        let productCount = 0;
-        
-        Object.keys(groupedProducts).forEach(productTitle => {
-            const variants = groupedProducts[productTitle];
-            const mainProduct = variants[0]; // Use first variant for display
-            productCount++;
-            
-            // Calculate price range
-            const prices = variants.map(v => v.price);
-            const minPrice = Math.min(...prices);
-            const maxPrice = Math.max(...prices);
-            const priceDisplay = minPrice === maxPrice ? `R${minPrice}` : `R${minPrice} - R${maxPrice}`;
-            
-            productsHTML += `
-                <div class="product-box" data-product-title="${productTitle}">
-                    <div class="img-box">
-                        <img src="${mainProduct.image}" alt="${mainProduct.title}">
-                    </div>
-                    <h2 class="product-title">${mainProduct.title}</h2>
-                    <div class="rating">
-                        ${Array(5).fill('<i class="fa fa-star"></i>').join('')}
-                    </div>
-                    <p>${getCategoryText(mainProduct.category)}</p>
-                    <p class="variant-count">${variants.length} weight option(s)</p>
-                    <div class="price-and-cart">
-                        <span class="price">${priceDisplay}</span>
-                        <button class="select-weight-btn" onclick="openWeightModal('${productTitle}')">
-                            <i class="fas fa-weight-hanging"></i> Select Weight
-                        </button>
-                    </div>
-                </div>
-            `;
-        });
-        
-        // Display results
-        if (productCount === 0) {
-            const categoryDisplayName = filterCategory === 'all' ? 'this selection' : getCategoryText(filterCategory);
-            productContent.innerHTML = `<p>No products available for ${categoryDisplayName}.</p>`;
-        } else {
-            productContent.innerHTML = productsHTML;
-        }
-        
-        console.log(`Loaded ${productCount} product types for category: ${filterCategory}`);
-        
-    }).catch(error => {
-        console.error('Error getting products:', error);
-        productContent.innerHTML = '<p>Error loading products. Please try again later.</p>';
-    });
-}
 
     function handleAddToCart(event) {
         console.log('Add to cart clicked');
